@@ -79,7 +79,7 @@ class CustomBlender(DataParser):
         image_filenames = []
         poses = []
         for frame in meta["frames"]:
-            fname = self.data / Path(frame["file_path"].replace("./", "") + ".png")
+            fname = self.data / Path(frame["file_path"].replace("./", "") + "" if frame["file_path"].endswith(".png") else ".png")
             image_filenames.append(fname)
             poses.append(np.array(frame["transform_matrix"]))
         poses = np.array(poses).astype(np.float32)
