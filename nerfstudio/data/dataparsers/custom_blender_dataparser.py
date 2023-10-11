@@ -38,7 +38,7 @@ from nerfstudio.utils.io import load_from_json
 class CustomBlenderDataParserConfig(DataParserConfig):
     """Blender dataset parser config"""
 
-    _target: Type = field(default_factory=lambda: Blender)
+    _target: Type = field(default_factory=lambda: CustomBlender)
     """target class to instantiate"""
     data: Path = Path("data/blender/lego")
     """Directory specifying location of data."""
